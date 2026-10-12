@@ -2772,6 +2772,34 @@ footer.framer-xAxJz.website-footer,
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(168, 85, 247, 0.2) !important;
 }
 
+/* Big Box Feature Card - Start Your Fitness Journey Now */
+.framer-1ioi20f {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.framer-1ioi20f:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(168, 85, 247, 0.4) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(168, 85, 247, 0.25) !important;
+}
+
+.framer-1ioi20f .framer-74y0fb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.framer-1ioi20f:hover .framer-74y0fb img {
+  transform: scale(1.03) !important;
+}
+
+
 
 
 

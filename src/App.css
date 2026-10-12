@@ -2703,6 +2703,76 @@ footer.framer-xAxJz.website-footer,
   }
 }
 
+/* ==========================================================================
+   PATH TO REAL RESULTS - 5 STEP CARDS BACKGROUND IMAGES
+   ========================================================================== */
+.framer-hubgka-container > .framer-1ury1vl,
+.step-card-1 {
+  background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.70) 0%, rgba(13, 13, 13, 0.88) 100%), url('/step-1.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.framer-8rqzcr-container > .framer-1ury1vl,
+.step-card-2 {
+  background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.70) 0%, rgba(13, 13, 13, 0.88) 100%), url('/step-2.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.framer-9ww7rh-container > .framer-1ury1vl,
+.step-card-3 {
+  background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.70) 0%, rgba(13, 13, 13, 0.88) 100%), url('/step-3.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.framer-g10y7d-container > .framer-1ury1vl,
+.step-card-4 {
+  background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.70) 0%, rgba(13, 13, 13, 0.88) 100%), url('/step-4.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.framer-15babwt-container > .framer-1ury1vl,
+.step-card-5 {
+  background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.70) 0%, rgba(13, 13, 13, 0.88) 100%), url('/step-5.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.step-card:hover,
+.framer-hubgka-container > .framer-1ury1vl:hover,
+.framer-8rqzcr-container > .framer-1ury1vl:hover,
+.framer-9ww7rh-container > .framer-1ury1vl:hover,
+.framer-g10y7d-container > .framer-1ury1vl:hover,
+.framer-15babwt-container > .framer-1ury1vl:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(168, 85, 247, 0.4) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(168, 85, 247, 0.2) !important;
+}
+
+
 
 
 

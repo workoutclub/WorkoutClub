@@ -26,12 +26,25 @@ body {
   box-sizing: border-box !important;
 }
 
-/* Optimized GPU acceleration & smooth 60-120fps performance */
+/* Fast tap response (eliminates 300ms mobile touch delay) */
+button, a, input, select, textarea,
+.faq-item-header, .review-slider-btn, .review-dot, .nav-book-button {
+  touch-action: manipulation !important;
+}
+
+/* Optimized GPU acceleration & buttery smooth 60-120fps scrolling */
 .scroll-reveal-item:not(.reveal-in-view) {
   will-change: transform, opacity !important;
 }
 
+.scroll-reveal-item {
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}
+
 /* Content visibility for below-the-fold sections to boost initial load & scrolling FPS */
+#how-it-works,
+#results,
 .pricing-section,
 .coaches-section,
 .programs-section,
@@ -39,7 +52,7 @@ body {
 #faq,
 .workout-footer {
   content-visibility: auto !important;
-  contain-intrinsic-size: auto 600px !important;
+  contain-intrinsic-size: auto 700px !important;
 }
 
 img {

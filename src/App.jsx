@@ -105,30 +105,96 @@ function App() {
 
     document.addEventListener('click', handleDocumentClick, { passive: true });
 
-    // Real Transformations Review Auto-Slider (Slides every 1 second)
+    // Preload all 8 transformation images so review slider transitions never stutter
+    for (let i = 21; i <= 28; i++) {
+      const preloadImg = new Image();
+      preloadImg.src = `/images/sf-${i}.avif`;
+    }
+
+    // Real Transformations Review Auto-Slider (Seamless Infinite Loop)
     const reviewTrack = document.getElementById('review-slider-track');
     const reviewDots = document.querySelectorAll('.review-dot');
     const prevReviewBtn = document.querySelector('.review-prev-btn');
     const nextReviewBtn = document.querySelector('.review-next-btn');
     const sliderContainer = document.querySelector('.review-slider-container');
     let reviewTimer = null;
-    let currentReviewIndex = 0;
+    let resetTimeout = null;
     const totalReviews = 4;
+    let trackIndex = 1; // 1..4 are real slides; 0 is clone of last; 5 is clone of first
+    const TRANSITION_DURATION_MS = 680;
+    const TRANSITION_CSS = `transform ${TRANSITION_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`;
 
-    const goToReviewSlide = (idx) => {
-      if (!reviewTrack) return;
-      currentReviewIndex = (idx + totalReviews) % totalReviews;
-      reviewTrack.style.transform = `translateX(-${currentReviewIndex * 100}%)`;
+    // Clone first and last slides once for a seamless infinite forward/backward loop
+    if (reviewTrack && !reviewTrack.querySelector('.review-slide-clone')) {
+      const realSlides = Array.from(reviewTrack.querySelectorAll('.review-slide'));
+      if (realSlides.length === totalReviews) {
+        const firstClone = realSlides[0].cloneNode(true);
+        const lastClone = realSlides[realSlides.length - 1].cloneNode(true);
+        firstClone.classList.add('review-slide-clone');
+        lastClone.classList.add('review-slide-clone');
+        firstClone.setAttribute('aria-hidden', 'true');
+        lastClone.setAttribute('aria-hidden', 'true');
+        reviewTrack.appendChild(firstClone);
+        reviewTrack.insertBefore(lastClone, realSlides[0]);
+      }
+    }
+
+    const syncActiveSlideClasses = (realIdx) => {
       reviewDots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentReviewIndex);
+        dot.classList.toggle('active', i === realIdx);
       });
+      if (!reviewTrack) return;
+      const allSlides = reviewTrack.querySelectorAll('.review-slide');
+      allSlides.forEach((slide) => {
+        const slideIdx = parseInt(slide.getAttribute('data-slide-index') || '0', 10);
+        slide.classList.toggle('active-slide', slideIdx === realIdx);
+      });
+    };
+
+    const snapIfOnClone = () => {
+      if (!reviewTrack) return;
+      if (resetTimeout) {
+        clearTimeout(resetTimeout);
+        resetTimeout = null;
+      }
+      if (trackIndex >= totalReviews + 1) {
+        reviewTrack.style.setProperty('transition', 'none', 'important');
+        trackIndex = 1;
+        reviewTrack.style.transform = `translate3d(-${trackIndex * 100}%, 0, 0)`;
+        void reviewTrack.offsetWidth;
+      } else if (trackIndex <= 0) {
+        reviewTrack.style.setProperty('transition', 'none', 'important');
+        trackIndex = totalReviews;
+        reviewTrack.style.transform = `translate3d(-${trackIndex * 100}%, 0, 0)`;
+        void reviewTrack.offsetWidth;
+      }
+    };
+
+    const goToTrackIndex = (nextTrackIdx, animate = true) => {
+      if (!reviewTrack) return;
+      snapIfOnClone();
+      trackIndex = nextTrackIdx;
+      const realIdx = ((trackIndex - 1) % totalReviews + totalReviews) % totalReviews;
+      syncActiveSlideClasses(realIdx);
+
+      if (animate) {
+        reviewTrack.style.setProperty('transition', TRANSITION_CSS, 'important');
+        reviewTrack.style.transform = `translate3d(-${trackIndex * 100}%, 0, 0)`;
+        if (trackIndex >= totalReviews + 1 || trackIndex <= 0) {
+          resetTimeout = setTimeout(snapIfOnClone, TRANSITION_DURATION_MS + 20);
+        }
+      } else {
+        reviewTrack.style.setProperty('transition', 'none', 'important');
+        reviewTrack.style.transform = `translate3d(-${trackIndex * 100}%, 0, 0)`;
+        void reviewTrack.offsetWidth;
+      }
     };
 
     const startReviewTimer = () => {
       if (reviewTimer) clearInterval(reviewTimer);
       reviewTimer = setInterval(() => {
-        goToReviewSlide(currentReviewIndex + 1);
-      }, 1000);
+        goToTrackIndex(trackIndex + 1, true);
+      }, 1680);
     };
 
     const stopReviewTimer = () => {
@@ -139,17 +205,17 @@ function App() {
     };
 
     const handleNextReview = () => {
-      goToReviewSlide(currentReviewIndex + 1);
+      goToTrackIndex(trackIndex + 1, true);
       startReviewTimer();
     };
 
     const handlePrevReview = () => {
-      goToReviewSlide(currentReviewIndex - 1);
+      goToTrackIndex(trackIndex - 1, true);
       startReviewTimer();
     };
 
     if (reviewTrack) {
-      goToReviewSlide(0);
+      goToTrackIndex(1, false);
       startReviewTimer();
 
       if (nextReviewBtn) nextReviewBtn.addEventListener('click', handleNextReview);
@@ -158,7 +224,7 @@ function App() {
       reviewDots.forEach((dot) => {
         dot.addEventListener('click', () => {
           const slideIdx = parseInt(dot.getAttribute('data-slide') || '0', 10);
-          goToReviewSlide(slideIdx);
+          goToTrackIndex(slideIdx + 1, true);
           startReviewTimer();
         });
       });
@@ -173,6 +239,7 @@ function App() {
       observer.disconnect();
       document.removeEventListener('click', handleDocumentClick);
       stopReviewTimer();
+      if (resetTimeout) clearTimeout(resetTimeout);
       if (nextReviewBtn) nextReviewBtn.removeEventListener('click', handleNextReview);
       if (prevReviewBtn) prevReviewBtn.removeEventListener('click', handlePrevReview);
     };

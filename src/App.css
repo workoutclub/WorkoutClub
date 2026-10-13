@@ -2829,8 +2829,11 @@ footer.framer-xAxJz.website-footer,
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transition: transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  transform-style: preserve-3d !important;
 }
 
 .review-slide {
@@ -2844,6 +2847,9 @@ footer.framer-xAxJz.website-footer,
   justify-content: center !important;
   padding: 0 !important;
   margin: 0 !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
 }
 
 .review-slide .framer-d0f63y {
@@ -2853,6 +2859,15 @@ footer.framer-xAxJz.website-footer,
   box-sizing: border-box !important;
   display: flex !important;
   border-radius: 24px !important;
+  opacity: 0.72 !important;
+  transform: scale(0.985) translateZ(0) !important;
+  transition: opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1), transform 0.68s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  will-change: transform, opacity !important;
+}
+
+.review-slide.active-slide .framer-d0f63y {
+  opacity: 1 !important;
+  transform: scale(1) translateZ(0) !important;
 }
 
 .review-slider-controls {
@@ -2877,7 +2892,7 @@ footer.framer-xAxJz.website-footer,
   justify-content: center !important;
   cursor: pointer !important;
   box-shadow: 0 4px 16px rgba(128, 0, 128, 0.4) !important;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .review-slider-btn:hover {
@@ -2904,7 +2919,7 @@ footer.framer-xAxJz.website-footer,
   border: none !important;
   padding: 0 !important;
   cursor: pointer !important;
-  transition: width 0.3s ease, background 0.3s ease, box-shadow 0.3s ease !important;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.45s ease, box-shadow 0.45s ease !important;
 }
 
 .review-dot:hover {

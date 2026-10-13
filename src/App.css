@@ -2817,9 +2817,9 @@ footer.framer-xAxJz.website-footer,
   overflow: hidden !important;
   border-radius: 24px !important;
   position: relative !important;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45) !important;
-  background: rgba(13, 13, 13, 0.6) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .review-slider-track {
@@ -2859,15 +2859,10 @@ footer.framer-xAxJz.website-footer,
   box-sizing: border-box !important;
   display: flex !important;
   border-radius: 24px !important;
-  opacity: 0.72 !important;
-  transform: scale(0.985) translateZ(0) !important;
-  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) !important;
-  will-change: transform, opacity !important;
-}
-
-.review-slide.active-slide .framer-d0f63y {
+  border: none !important;
+  box-shadow: none !important;
   opacity: 1 !important;
-  transform: scale(1) translateZ(0) !important;
+  transform: translateZ(0) !important;
 }
 
 .review-slider-controls {

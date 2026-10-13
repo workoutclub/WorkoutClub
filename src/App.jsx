@@ -121,7 +121,7 @@ function App() {
     let resetTimeout = null;
     const totalReviews = 4;
     let trackIndex = 1; // 1..4 are real slides; 0 is clone of last; 5 is clone of first
-    const TRANSITION_DURATION_MS = 680;
+    const TRANSITION_DURATION_MS = 850;
     const TRANSITION_CSS = `transform ${TRANSITION_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`;
 
     // Clone first and last slides once for a seamless infinite forward/backward loop
@@ -194,7 +194,7 @@ function App() {
       if (reviewTimer) clearInterval(reviewTimer);
       reviewTimer = setInterval(() => {
         goToTrackIndex(trackIndex + 1, true);
-      }, 1680);
+      }, 2000);
     };
 
     const stopReviewTimer = () => {

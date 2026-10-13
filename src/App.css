@@ -2829,7 +2829,7 @@ footer.framer-xAxJz.website-footer,
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  transition: transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform !important;
   backface-visibility: hidden !important;
   -webkit-backface-visibility: hidden !important;
@@ -2861,7 +2861,7 @@ footer.framer-xAxJz.website-footer,
   border-radius: 24px !important;
   opacity: 0.72 !important;
   transform: scale(0.985) translateZ(0) !important;
-  transition: opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1), transform 0.68s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) !important;
   will-change: transform, opacity !important;
 }
 

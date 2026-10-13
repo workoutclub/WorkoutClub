@@ -495,6 +495,74 @@ button, a, input, select, textarea,
   line-height: 1.6 !important;
 }
 
+.pricing-filters-bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+  margin: 36px auto 0 auto !important;
+  max-width: 1120px !important;
+}
+
+.pricing-filter-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  background: linear-gradient(180deg, #180a22 0%, #0d0413 100%) !important;
+  padding: 8px 10px 8px 20px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(168, 85, 247, 0.35) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14) !important;
+}
+
+.pricing-filter-label {
+  font-family: "Anton", "Anton Placeholder", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: #c084fc !important;
+  padding-right: 12px !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.16) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.pricing-pill-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.pricing-filter-btn {
+  background: transparent !important;
+  color: rgba(245, 245, 240, 0.78) !important;
+  border: 1px solid transparent !important;
+  padding: 9px 18px !important;
+  border-radius: 9999px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: background 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease !important;
+}
+
+.pricing-filter-btn:hover:not(.active) {
+  color: #ffffff !important;
+  background: rgba(168, 85, 247, 0.16) !important;
+  border-color: rgba(168, 85, 247, 0.32) !important;
+}
+
+.pricing-filter-btn.active {
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(216, 180, 254, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.45) !important;
+}
+
 .pricing-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
@@ -579,6 +647,7 @@ button, a, input, select, textarea,
   color: #ffffff !important;
   display: block !important;
   line-height: 1em !important;
+  transition: opacity 0.18s ease, transform 0.18s ease !important;
 }
 
 .price-duration {
@@ -1389,7 +1458,7 @@ footer {
 .btn-light,
 .extra-card-btn,
 a.framer-QCJ34,
-button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn) {
+button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):not(.pricing-filter-btn) {
   position: relative !important;
   overflow: hidden !important;
   z-index: 1 !important;
@@ -1407,7 +1476,7 @@ button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-s
 .btn-light::before,
 .extra-card-btn::before,
 a.framer-QCJ34::before,
-button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn)::before {
+button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):not(.pricing-filter-btn)::before {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -1433,7 +1502,7 @@ button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-s
 .btn-light:hover::before,
 .extra-card-btn:hover::before,
 a.framer-QCJ34:hover::before,
-button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):hover::before {
+button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):not(.pricing-filter-btn):hover::before {
   transform: scaleX(1) !important;
 }
 
@@ -1447,7 +1516,7 @@ button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-s
 .btn-light *,
 .extra-card-btn *,
 a.framer-QCJ34 *,
-button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn) * {
+button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):not(.pricing-filter-btn) * {
   position: relative !important;
   z-index: 2 !important;
   transition: color 0.35s ease !important;
@@ -1468,7 +1537,7 @@ button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-s
 .btn-light:hover,
 .extra-card-btn:hover,
 a.framer-QCJ34:hover,
-button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):hover {
+button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):not(.pricing-filter-btn):hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px rgba(128, 0, 128, 0.45) !important;
 }
@@ -1482,7 +1551,7 @@ button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-s
 .btn-light:hover *,
 .extra-card-btn:hover *,
 a.framer-QCJ34:hover *,
-button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):hover * {
+button:not(.modal-close):not(.mobile-menu-toggle):not(.review-dot):not(.review-slider-btn):not(.pricing-filter-btn):hover * {
   color: #ffffff !important;
 }
 
@@ -3194,6 +3263,33 @@ footer.framer-xAxJz.website-footer,
   .review-slide .framer-xkgv5z,
   .review-slide .framer-1dx40k5 {
     height: 230px !important;
+  }
+
+  .pricing-filter-group {
+    flex-direction: column !important;
+    border-radius: 22px !important;
+    padding: 14px 16px !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .pricing-filter-label {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+    padding-right: 0 !important;
+    padding-bottom: 8px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .pricing-pill-group {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .pricing-filter-btn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
   }
 }
 

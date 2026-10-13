@@ -3323,6 +3323,10 @@ footer.framer-xAxJz.website-footer,
     align-items: center !important;
   }
 
+  .desktop-cta-btn {
+    display: none !important;
+  }
+
   .mobile-menu-toggle {
     display: inline-flex !important;
   }

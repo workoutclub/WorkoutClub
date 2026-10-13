@@ -455,7 +455,7 @@ button, a, input, select, textarea,
 }
 
 .pricing-container {
-  max-width: 1240px !important;
+  max-width: 1280px !important;
   margin: 0 auto !important;
 }
 
@@ -565,7 +565,7 @@ button, a, input, select, textarea,
 
 .pricing-grid {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 28px !important;
   align-items: stretch !important;
   max-width: 1200px !important;
@@ -574,33 +574,54 @@ button, a, input, select, textarea,
 }
 
 .pricing-grid.pricing-cols-2 {
-  grid-template-columns: repeat(2, 1fr) !important;
-  max-width: 840px !important;
+  grid-template-columns: repeat(2, minmax(0, 390px)) !important;
+  justify-content: center !important;
+  max-width: 820px !important;
   gap: 32px !important;
 }
 
 .pricing-grid.pricing-cols-3 {
-  grid-template-columns: repeat(3, 1fr) !important;
-  max-width: 1200px !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  max-width: 1180px !important;
   gap: 28px !important;
 }
 
 .pricing-grid.pricing-cols-4 {
-  grid-template-columns: repeat(4, 1fr) !important;
-  max-width: 1260px !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  max-width: 1280px !important;
   gap: 20px !important;
 }
 
 .pricing-grid.pricing-cols-4 .price-card {
-  padding: 38px 24px 30px 24px !important;
+  padding: 36px 22px 28px 22px !important;
+  border-radius: 24px !important;
+}
+
+.pricing-grid.pricing-cols-4 .price-card-header {
+  margin-bottom: 22px !important;
 }
 
 .pricing-grid.pricing-cols-4 .price-plan-name {
-  font-size: 31px !important;
+  font-size: 30px !important;
+}
+
+.pricing-grid.pricing-cols-4 .price-plan-time {
+  font-size: 13.5px !important;
+  margin-bottom: 18px !important;
 }
 
 .pricing-grid.pricing-cols-4 .price-amount {
-  font-size: 44px !important;
+  font-size: 42px !important;
+}
+
+.pricing-grid.pricing-cols-4 .price-features-list {
+  margin-bottom: 28px !important;
+}
+
+.pricing-grid.pricing-cols-4 .price-features-list li {
+  font-size: 14px !important;
+  gap: 10px !important;
+  margin-bottom: 12px !important;
 }
 
 .price-card {

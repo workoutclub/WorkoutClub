@@ -563,6 +563,84 @@ button, a, input, select, textarea,
   box-shadow: 0 4px 16px rgba(168, 85, 247, 0.45) !important;
 }
 
+/* Collapsible Branch / Duration selectors: show only label, reveal options on hover / tap */
+.pricing-filter-group {
+  padding: 12px 22px !important;
+  gap: 0 !important;
+  cursor: pointer !important;
+  transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), gap 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.pricing-filter-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-right: 0 !important;
+  border-right: 1px solid transparent !important;
+  user-select: none !important;
+  transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.filter-chevron {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
+}
+
+.pricing-filter-group .pricing-pill-group {
+  max-width: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  flex-wrap: nowrap !important;
+  pointer-events: none !important;
+  transition: max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+}
+
+.pricing-filter-group.open {
+  padding: 8px 10px 8px 20px !important;
+  gap: 12px !important;
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.22) !important;
+}
+
+.pricing-filter-group.open .pricing-filter-label {
+  padding-right: 12px !important;
+  border-right-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.pricing-filter-group.open .filter-chevron {
+  transform: rotate(90deg) !important;
+}
+
+.pricing-filter-group.open .pricing-pill-group {
+  max-width: 560px !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pricing-filter-group:hover {
+    padding: 8px 10px 8px 20px !important;
+    gap: 12px !important;
+    border-color: rgba(168, 85, 247, 0.6) !important;
+    box-shadow: 0 12px 32px rgba(168, 85, 247, 0.22) !important;
+  }
+
+  .pricing-filter-group:hover .pricing-filter-label {
+    padding-right: 12px !important;
+    border-right-color: rgba(255, 255, 255, 0.16) !important;
+  }
+
+  .pricing-filter-group:hover .filter-chevron {
+    transform: rotate(90deg) !important;
+  }
+
+  .pricing-filter-group:hover .pricing-pill-group {
+    max-width: 560px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
 .pricing-grid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -3508,26 +3586,46 @@ footer.framer-xAxJz.website-footer,
     height: 230px !important;
   }
 
-  .pricing-filter-group {
+  .pricing-filter-group,
+  .pricing-filter-group.open {
     flex-direction: column !important;
     border-radius: 22px !important;
     padding: 14px 16px !important;
     width: 100% !important;
+    gap: 0 !important;
+  }
+
+  .pricing-filter-group.open {
     gap: 10px !important;
   }
 
-  .pricing-filter-label {
+  .pricing-filter-label,
+  .pricing-filter-group.open .pricing-filter-label {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-bottom: 1px solid transparent !important;
     padding-right: 0 !important;
-    padding-bottom: 8px !important;
+    padding-bottom: 0 !important;
     width: 100% !important;
-    text-align: center !important;
+    justify-content: center !important;
   }
 
-  .pricing-pill-group {
+  .pricing-filter-group.open .pricing-filter-label {
+    border-bottom-color: rgba(255, 255, 255, 0.14) !important;
+    padding-bottom: 8px !important;
+  }
+
+  .pricing-filter-group .pricing-pill-group {
     justify-content: center !important;
     width: 100% !important;
+    max-width: 100% !important;
+    max-height: 0 !important;
+    flex-wrap: wrap !important;
+    transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+  }
+
+  .pricing-filter-group.open .pricing-pill-group {
+    max-width: 100% !important;
+    max-height: 200px !important;
   }
 
   .pricing-filter-btn {

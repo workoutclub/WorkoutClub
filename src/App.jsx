@@ -15,7 +15,6 @@ function App() {
       '#services img',
       'img[alt*="Muscular male personal trainer"]',
       '[data-framer-name="About"] img',
-      '[data-framer-name="Results"] img',
       '[id="faq"] [tabindex="0"]',
       '.extra-card', '.coach-card', '.price-card', '.program-card', '.branch-block',
       '.extra-header'
@@ -121,11 +120,21 @@ function App() {
     let resetTimeout = null;
     const totalReviews = 4;
     let trackIndex = 1; // 1..4 are real slides; 0 is clone of last; 5 is clone of first
-    const TRANSITION_DURATION_MS = 850;
-    const TRANSITION_CSS = `transform ${TRANSITION_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+    const TRANSITION_DURATION_MS = 900;
+    const TRANSITION_CSS = `transform ${TRANSITION_DURATION_MS}ms cubic-bezier(0.25, 1, 0.5, 1)`;
 
-    // Clone first and last slides once for a seamless infinite forward/backward loop
-    if (reviewTrack && !reviewTrack.querySelector('.review-slide-clone')) {
+    if (reviewTrack) {
+      // Remove any old clones (e.g., from HMR) and ensure all slide images are eagerly decoded & visible
+      reviewTrack.querySelectorAll('.review-slide-clone').forEach((clone) => clone.remove());
+      reviewTrack.querySelectorAll('.scroll-reveal-item').forEach((el) => {
+        el.classList.remove('scroll-reveal-item', 'reveal-in-view');
+        el.style.removeProperty('--reveal-delay');
+      });
+      reviewTrack.querySelectorAll('img').forEach((img) => {
+        img.loading = 'eager';
+        img.decoding = 'sync';
+      });
+
       const realSlides = Array.from(reviewTrack.querySelectorAll('.review-slide'));
       if (realSlides.length === totalReviews) {
         const firstClone = realSlides[0].cloneNode(true);
@@ -142,12 +151,6 @@ function App() {
     const syncActiveSlideClasses = (realIdx) => {
       reviewDots.forEach((dot, i) => {
         dot.classList.toggle('active', i === realIdx);
-      });
-      if (!reviewTrack) return;
-      const allSlides = reviewTrack.querySelectorAll('.review-slide');
-      allSlides.forEach((slide) => {
-        const slideIdx = parseInt(slide.getAttribute('data-slide-index') || '0', 10);
-        slide.classList.toggle('active-slide', slideIdx === realIdx);
       });
     };
 
@@ -181,7 +184,7 @@ function App() {
         reviewTrack.style.setProperty('transition', TRANSITION_CSS, 'important');
         reviewTrack.style.transform = `translate3d(-${trackIndex * 100}%, 0, 0)`;
         if (trackIndex >= totalReviews + 1 || trackIndex <= 0) {
-          resetTimeout = setTimeout(snapIfOnClone, TRANSITION_DURATION_MS + 20);
+          resetTimeout = setTimeout(snapIfOnClone, TRANSITION_DURATION_MS + 25);
         }
       } else {
         reviewTrack.style.setProperty('transition', 'none', 'important');

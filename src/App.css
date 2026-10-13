@@ -2829,11 +2829,17 @@ footer.framer-xAxJz.website-footer,
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform !important;
   backface-visibility: hidden !important;
   -webkit-backface-visibility: hidden !important;
   transform-style: preserve-3d !important;
+}
+
+.review-slider-track img {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .review-slide {

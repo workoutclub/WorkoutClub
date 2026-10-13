@@ -648,6 +648,48 @@ button, a, input, select, textarea,
   box-shadow: 0 0 36px rgba(168, 85, 247, 0.35) !important;
 }
 
+.price-card.price-card-female {
+  background: linear-gradient(180deg, #4a0e2e 0%, #240617 100%) !important;
+  border: 1.5px solid rgba(244, 114, 182, 0.55) !important;
+  box-shadow: 0 12px 36px rgba(236, 72, 153, 0.22) !important;
+}
+
+.price-card.price-card-female:hover {
+  border-color: #f472b6 !important;
+  box-shadow: 0 20px 48px rgba(236, 72, 153, 0.4) !important;
+}
+
+.price-card.price-card-female .price-plan-name {
+  color: #fdf2f8 !important;
+}
+
+.price-card.price-card-female .price-plan-time {
+  color: #f9a8d4 !important;
+}
+
+.price-card.price-card-female .price-duration {
+  color: #fbcfe8 !important;
+}
+
+.price-card.price-card-female .price-admission-tag {
+  background: rgba(236, 72, 153, 0.22) !important;
+  border-color: rgba(244, 114, 182, 0.5) !important;
+  color: #fce7f3 !important;
+}
+
+.price-card.price-card-female .check-box {
+  background-color: #ec4899 !important;
+}
+
+.price-card.price-card-female .price-cta-btn::before {
+  background: linear-gradient(135deg, #db2777 0%, #ec4899 100%) !important;
+}
+
+.price-card.price-card-female .price-cta-btn:hover {
+  border-color: rgba(244, 114, 182, 0.65) !important;
+  box-shadow: 0 10px 28px rgba(236, 72, 153, 0.45) !important;
+}
+
 .popular-badge-wrap {
   position: absolute !important;
   top: -18px !important;

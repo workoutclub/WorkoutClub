@@ -550,8 +550,8 @@ button, a, input, select, textarea,
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
-  min-width: 240px !important;
-  padding: 10px 12px 10px 10px !important;
+  min-width: 200px !important;
+  padding: 11px 14px 11px 20px !important;
   background: linear-gradient(180deg, #1a0b25 0%, #0d0413 100%) !important;
   border: 1px solid rgba(168, 85, 247, 0.28) !important;
   border-radius: 16px !important;

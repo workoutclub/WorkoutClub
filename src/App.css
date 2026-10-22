@@ -3714,71 +3714,47 @@ footer.framer-xAxJz.website-footer,
 }
 
 /* ==========================================================================
-   BOOK A FREE CALL SECTION & FORM STYLING
+   FULL DARK THEME BOOKING FORM SECTION
    ========================================================================== */
 .booking-section {
   position: relative;
   z-index: 10;
-  padding: 100px 24px;
-  background: radial-gradient(circle at 50% 0%, rgba(128, 0, 128, 0.18) 0%, rgba(13, 4, 19, 0.95) 50%, #060209 100%);
+  padding: 90px 20px 100px;
+  background: #000000 !important;
   border-top: 1px solid rgba(168, 85, 247, 0.15);
-  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
   overflow: hidden;
 }
 
+/* Background subtle ambient purple glow */
+.booking-section::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(128, 0, 128, 0.22) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .booking-container {
-  max-width: 860px;
+  max-width: 780px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-.booking-header-center {
-  text-align: center;
-  margin-bottom: 44px;
-}
-
-.booking-badge {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 2.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #c084fc;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.32);
-  border-radius: 9999px;
-  padding: 6px 18px;
-  margin-bottom: 16px;
-}
-
-.booking-main-title {
-  font-family: "Anton", "Anton Placeholder", sans-serif !important;
-  font-size: clamp(34px, 5.5vw, 56px);
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  line-height: 1.1;
-  margin: 0 0 16px 0;
-}
-
-.booking-main-subtitle {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.72);
-  max-width: 580px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
+/* Full Dark Card Container */
 .booking-card-wrapper {
-  background: rgba(18, 9, 28, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  border-radius: 24px;
-  padding: 44px 40px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(128, 0, 128, 0.18);
+  background: #0a0312 !important;
+  border: 1px solid rgba(168, 85, 247, 0.28) !important;
+  border-radius: 20px !important;
+  padding: 50px 48px 40px !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 35px rgba(128, 0, 128, 0.2) !important;
   transition: all 0.35s ease;
+  position: relative;
 }
 
 .booking-card-wrapper.booking-pulse {
@@ -3787,163 +3763,267 @@ footer.framer-xAxJz.website-footer,
 
 @keyframes bookingPulseGlow {
   0% {
-    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.8), 0 0 50px rgba(168, 85, 247, 0.6);
-    border-color: #c084fc;
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.8), 0 0 45px rgba(168, 85, 247, 0.6);
+    border-color: #c084fc !important;
   }
   50% {
-    box-shadow: 0 0 50px 15px rgba(168, 85, 247, 0.7), 0 0 90px rgba(128, 0, 128, 0.5);
-    border-color: #d8b4fe;
+    box-shadow: 0 0 55px 15px rgba(168, 85, 247, 0.7), 0 0 90px rgba(128, 0, 128, 0.5);
+    border-color: #d8b4fe !important;
     transform: scale(1.01);
   }
   100% {
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(128, 0, 128, 0.18);
-    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 35px rgba(128, 0, 128, 0.2);
+    border-color: rgba(168, 85, 247, 0.28) !important;
     transform: scale(1);
   }
+}
+
+.booking-header-center {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.booking-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 9999px;
+  padding: 5px 16px;
+  margin-bottom: 14px;
+}
+
+.booking-main-title {
+  font-family: "Anton", "Anton Placeholder", sans-serif !important;
+  font-size: clamp(32px, 5vw, 48px) !important;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  margin: 0 0 12px 0;
+}
+
+.booking-main-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65) !important;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
 .booking-form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  gap: 20px;
+}
+
+.booking-full-width {
+  grid-column: 1 / -1;
 }
 
 .booking-field-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .booking-label {
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  color: rgba(255, 255, 255, 0.75) !important;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+}
+
+.booking-optional {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
 }
 
 .required-star {
   color: #ec4899;
 }
 
-.booking-input-wrap,
-.booking-select-wrap {
+.booking-input-wrap {
   position: relative;
   width: 100%;
 }
 
+/* Full Dark Theme Inputs */
 .booking-input,
-.booking-select {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-  padding: 14px 18px;
-  color: #ffffff;
-  font-size: 15px;
+.booking-select,
+.booking-textarea {
+  width: 100% !important;
+  background: #040108 !important;
+  border: 1px solid rgba(168, 85, 247, 0.22) !important;
+  border-radius: 10px !important;
+  padding: 13px 16px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
   font-family: inherit;
-  outline: none;
-  box-sizing: border-box;
-  transition: all 0.25s ease;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.25s ease !important;
 }
 
-.booking-input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+.booking-textarea {
+  resize: vertical;
+  min-height: 85px;
+  line-height: 1.5;
+}
+
+.booking-input::placeholder,
+.booking-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.32) !important;
 }
 
 .booking-input:focus,
-.booking-select:focus {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #a855f7;
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+.booking-select:focus,
+.booking-textarea:focus {
+  background: #08020e !important;
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3) !important;
+}
+
+/* Autocomplete Dark Mode Fix for Webkit */
+.booking-input:-webkit-autofill,
+.booking-input:-webkit-autofill:hover, 
+.booking-input:-webkit-autofill:focus,
+.booking-select:-webkit-autofill,
+.booking-select:-webkit-autofill:hover,
+.booking-select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #040108 inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 .booking-select {
-  appearance: none;
-  -webkit-appearance: none;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c084fc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 18px center;
-  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%23c084fc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  padding-right: 42px !important;
 }
 
 .booking-select option {
-  background: #13071f;
-  color: #ffffff;
-  padding: 10px;
+  background: #0d0417 !important;
+  color: #ffffff !important;
+  padding: 12px !important;
 }
 
 .booking-submit-wrap {
-  margin-top: 32px;
+  margin-top: 26px;
 }
 
+/* Full Width Submit Button matching user's primary theme */
 .booking-submit-btn {
   font-family: "Anton", "Anton Placeholder", sans-serif !important;
-  font-size: 19px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  width: 100%;
-  padding: 18px 36px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #800080 0%, #a855f7 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 19px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  width: 100% !important;
+  padding: 16px 32px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #800080 0%, #a855f7 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.45);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.45) !important;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .booking-submit-btn:hover {
-  background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%);
-  box-shadow: 0 14px 40px rgba(168, 85, 247, 0.7);
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%) !important;
+  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.7) !important;
+  transform: translateY(-2px) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
 .booking-submit-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4) !important;
 }
 
 .booking-success-alert {
   display: none;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-top: 24px;
-  padding: 18px 24px;
-  border-radius: 14px;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  color: #86efac;
-  font-size: 15px;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.12) !important;
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  color: #86efac !important;
+  font-size: 14.5px;
   font-weight: 500;
   text-align: center;
 }
 
+/* Bottom Social / Contact icons row like in reference screenshot */
+.booking-social-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.booking-social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #c084fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.booking-social-icon:hover {
+  background: rgba(168, 85, 247, 0.25);
+  color: #ffffff;
+  border-color: #a855f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(168, 85, 247, 0.3);
+}
+
 @media (max-width: 768px) {
   .booking-section {
-    padding: 60px 16px;
+    padding: 60px 16px 80px;
   }
   .booking-card-wrapper {
-    padding: 30px 20px;
-    border-radius: 18px;
+    padding: 34px 20px 28px !important;
+    border-radius: 16px !important;
   }
   .booking-form-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
   .booking-submit-btn {
-    font-size: 17px;
-    padding: 16px 24px;
+    font-size: 17px !important;
+    padding: 15px 22px !important;
   }
 }
 
